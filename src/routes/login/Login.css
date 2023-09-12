@@ -1,0 +1,150 @@
+.container.login {
+	background: linear-gradient(45deg, #7125ff, #462bdf, #3983f1);
+  height: 100vh;
+  width: 100%;
+}
+
+.loginTabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loginTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  background: #1f2021;
+  padding: 25px 30px;
+}
+
+.tabTitle {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 20px;
+  max-width: 280px;
+  color: rgb(255, 106, 106);
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.loginFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.loginField {
+  margin-bottom: 16px;
+}
+
+.loginField.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldName {
+  color: #c7c7c7;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.loginField.required .fieldName::after {
+  content: ' *';
+  color: rgb(255, 106, 106);
+}
+
+.fieldInput {
+  border: none;
+  background: #2c2d2e;
+  border-radius: 6px;
+  padding: 12px 8px;
+  color: white;
+  width: 230px;
+  font-size: 14px;
+}
+
+.tabBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.submitLogin {
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: 100ms ease-in-out;
+  transition-property: filter, scale;
+}
+
+.submitLogin:hover {
+  filter: brightness(95%);
+}
+
+.submitLogin:active {
+  filter: brightness(90%);
+  scale: 0.98;
+}
+
+.submitLogin:disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background-color: #bdbdbd;
+}
+
+.submitLogin:disabled .spinningDisk {
+    width: 25px;
+    height: 25px;
+    border-top-color: #000;
+    border-width: 8px;
+    animation: spin 800ms linear infinite, 250ms linear easeIn;
+}
+
+@media screen and (max-width: 520px) {
+  .loginTab {
+    width: calc(100% - 60px - 16px);
+    height: calc(70% - 50px - 16px);;
+  }
+
+  .tabTitle {
+    margin-bottom: 70px;
+  }
+
+  .loginFields {
+    height: 100%;
+  }
+
+  .loginField {
+    width: 100%;
+  }
+
+  .fieldName {
+    font-size: 20px;
+  }
+
+  
+  .fieldInput {
+    width: calc(100% - 16px);
+    font-size: 20px;
+  }
+}

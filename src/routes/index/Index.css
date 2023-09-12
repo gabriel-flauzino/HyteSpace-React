@@ -1,0 +1,429 @@
+body {
+	background-color: #1f2021;
+	color: white;
+}
+
+.disableScroll {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+.contentHeader {
+	height: 100vh;
+	min-height: 600px;
+}
+
+.headerChild {
+	height: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.buttonsRow {
+	flex-direction: row;
+}
+
+.headerLogo {
+	margin-bottom: 50px;
+	font-size: 170px;
+}
+
+.joinButton {
+	position: relative;
+	border: none;
+	border-radius: 8px;
+	background: linear-gradient(45deg, #7125ff, #462bdf, #3983f1);
+	padding: 25px 45px;
+	font-size: 50px;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: white;
+	box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.2);
+	transition: 100ms ease-in-out;
+	cursor: pointer;
+}
+
+.joinButton:hover {
+	scale: 1.1;
+	box-shadow: 0 0 4px 2px rgb(70, 43, 223);
+	border: rgb(111, 86, 255) 1px solid;
+}
+
+.joinButton:active {
+	scale: 1.08;
+	filter: brightness(95%);
+}
+
+.fillScreenAnim {
+	position: fixed;
+	background: linear-gradient(45deg, #7125ff, #462bdf, #3983f1);
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	translate: -50% -50%;
+}
+
+.fillScreenAnim.clicked {
+	animation: borderRadius 600ms ease-in-out forwards;
+}
+
+@keyframes borderRadius {
+	0% {
+		border-radius: 50%;
+	}
+	50% {
+		border-radius: 10%;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	100% {
+		border-radius: 0;
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+.contentSections section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 80px 0;
+}
+
+.sectionTitle {
+	font-size: 42px;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 900;
+	margin-bottom: 70px;
+}
+
+.sectionContent {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.sectionChild {
+	width: 40%;
+}
+
+.sectionText span {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: calc(100% - 40px);
+}
+
+.sectionText span p {
+	font-size: 18px;
+	letter-spacing: 1px;
+	margin-bottom: 12px;
+}
+
+.aboutSection {
+	background-color: #3983f1;
+}
+
+.figureSpaceHome {
+	min-width: 300px;
+	width: calc(100% - 16px);
+	padding: 8px;
+	height: 334px;
+	background-color: #1a1a1a;
+	border-radius: 16px;
+}
+
+.spheresRowLine {
+	width: 40%;
+	height: 12px;
+	background-color: #383838;
+	margin-bottom: 8px;
+	border-radius: 12px;
+}
+
+.spheresRow {
+	display: flex;
+	align-items: center;
+	overflow-x: hidden;
+	width: calc(100% - 8px);
+	padding: 4px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: #2c2c2c;
+	margin-bottom: 8px;
+}
+
+.sphere {
+	width: 30px;
+	height: 30px;
+	background-color: #3b3b3b;
+	border-radius: 50%;
+	margin-right: 3px;
+}
+
+.contentShapes {
+	display: flex;
+	width: 100%;
+	height: calc(100% - 76px);	
+}
+
+.sideRect {
+	width: 40px;
+	height: 100%;
+	border-radius: 8px;
+	background-color: #2c2c2c;
+}
+
+.middleContent {
+	height: 100%;
+	width: calc(100% - 80px - 16px);
+	padding: 0 8px;
+}
+
+.post {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 12px;
+}
+
+.authorInfo {
+	display: flex;
+	align-items: center;
+}
+
+.roundPic {
+	background-color: #383838;
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+}
+
+.nameLine {
+	height: 10px;
+	border-radius: 10px;
+	margin-left: 8px;
+}
+
+.postContent {
+	margin-left: 33px;
+}
+
+.textLine {
+	height: 9px;
+	border-radius: 4.5px;
+	margin-bottom: 4px;
+}
+
+.textType1 {
+	width: 120px;
+	background-color: #333333;
+}
+
+.textType2 {
+	width: 90px;
+	background-color: #2c2c2c;
+}
+
+.textType3 {
+	width: 60px;
+	background-color: #3f3f3f;
+}
+
+.textType4 {
+	width: 30px;
+	background-color: #3d3d3d;
+}
+
+.textType5 {
+	width: 45px;
+	background-color: #383838;
+}
+
+.textType6 {
+	width: 75px;
+	background-color: #3f3f3f;
+}
+
+.textType7 {
+	width: 105px;
+	background-color: #3a3a3a;
+}
+
+.postAttachment {
+	margin-top: 8px;
+	width: 120px;
+	height: 60px;
+	border-radius: 10px;
+	background-color: #3b3b3b;
+}
+
+.chatSection .sectionContent {
+	flex-direction: row-reverse;
+}
+
+.figureChat {
+	min-width: 300px;
+	width: calc(100% - 16px);
+	padding: 8px;
+	height: 334px;
+	background-color: #141518;
+	border-radius: 16px;
+	overflow-y: hidden;
+}
+
+.messageRow {
+	width: 100%;
+	display: flex;
+}
+
+.messageAuthorPic {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: #242529;
+}
+
+.message {
+	display: flex;
+	margin: 12px 8px;
+}
+
+.msgTriangle {
+	border: 10px solid #00000000;
+	border-top-color: #33353b;
+	width: 0;
+	height: 0;
+}
+
+.messageContent {
+	border-radius: 8px;
+	border-top-left-radius: 0;
+	width: 90px;
+	height: 40px;
+	background-color: #33353b;
+	margin-left: -10px;
+}
+
+.messageRow.sender {
+	flex-direction: row-reverse;
+}
+
+.messageRow.sender .message {
+	flex-direction: row-reverse
+}
+
+.messageRow.sender .messageContent {
+	margin-left: 0;
+	margin-right: -10px;
+	border-radius: 8px;
+	border-top-right-radius: 0;
+}
+
+.toolsSection {
+	background: rgb(111, 86, 255);
+}
+
+.figureTools {
+	display: flex;
+	justify-content: center;
+	min-width: 300px;
+	width: calc(100% - 16px);
+	padding: 8px;
+	height: 372px;
+	background-color: #141316;
+	border-radius: 16px;
+	overflow-y: hidden;
+}
+
+.toolIcon {
+	background-color: #676a75;
+	background-color: #242529;
+	width: 100px;
+	height: 100px;
+	padding: 12px;
+	border-radius: 16px;
+}
+
+.middleIcon {
+	align-self: center;
+	background-color: transparent;
+}
+
+.endIcon {
+	align-self: flex-end;
+}
+
+.gamesSection .sectionContent {
+	flex-direction: column;
+	align-items: center;
+}
+
+.gamesSection .sectionChild {
+	width: 90%;
+	text-align: center;
+}
+
+.gamesSection .sectionFigure {
+	margin-top: 80px;
+}
+
+.figureGames {
+	display: flex;
+	justify-content: center;
+}
+
+.figMobile {
+	margin: 0 32px;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #161718;
+	height: 200px;
+	padding: 16px;
+}
+
+.footerLogo {
+	font-size: 30px;
+	margin-bottom: 12px
+}
+
+@media screen and (max-width: 750px) {
+	.headerLogo {
+		font-size: 100px;
+	}
+
+	.sectionTitle {
+		width: 90%;
+		font-size: 38px;
+	}
+
+	.sectionContent {
+		flex-direction: column !important;
+		align-items: center;
+	}
+
+	.sectionChild {
+		width: 90%;
+	}
+
+	.sectionText {
+		text-align: center;
+	}
+
+	.sectionFigure {
+		margin-top: 60px;
+	}
+}
