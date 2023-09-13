@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import './Login.css'
 
+import socket from '../../services/socket';
+import { useNavigate } from 'react-router-dom';
+
 function Login() {
+  const navigate = useNavigate()
+
   let [ username, setUsername ] = useState('');
   let [ password, setPassword ] = useState('');
   let [ isSubmiting, setIsSubmiting ] = useState(false);
@@ -11,7 +16,7 @@ function Login() {
     console.log('focusing next')
     const inputs = Array.from(document.querySelectorAll('.loginField > input'))
     const idx = inputs.indexOf(document.activeElement) + 1
-    if (idx == inputs.length) {
+    if (idx === inputs.length) {
       document.activeElement.blur()
       document.querySelector('.submitLogin').click()
     } else {
@@ -23,10 +28,22 @@ function Login() {
     setError('');
     setIsSubmiting(true);
 
-    setTimeout(() => {
-      setIsSubmiting(false)
-      setError('invalido muito invalid invalido muito invalid invalido muito invalid')
-    }, 2000)
+    socket.emit("login", { username, password }, d => {
+      if (d.err) {
+        let errMsg;
+
+        switch (d.errType) {
+          case "FIELDS_NOT_FILLED": errMsg = "Todos os campos devem ser preenchidos."; break;
+          case "USERNAME_INCORRECT": errMsg = "Este usuário não existe."; break;
+          case "PASSWORD_INCORRECT": errMsg = "A senha está incorreta."; break;
+          default: errMsg = "Um erro desconhecido ocorreu. Código do erro: " + d.errType 
+        }
+        setIsSubmiting(false)
+        return setError(errMsg)
+      }
+      localStorage.setItem("token", d.user.token)
+      navigate("/app")
+    })
   }
 
   return (
@@ -60,6 +77,12 @@ function Login() {
           <span className="errorMessage">
             { error !== '' && error }
           </span>
+          <button 
+          className="registerButton"
+          onClick={() => navigate("/register")}
+          >
+          Cadastrar uma conta nova
+          </button>
           { !isSubmiting ? (
             <button className="submitLogin" onClick={loginSubmitHandler}>Entrar</button>
           ) : (
