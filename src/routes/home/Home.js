@@ -12,6 +12,8 @@ function Home() {
   const token = localStorage.getItem('token')
   let auth;
 
+  if (!token) navigate("/login")
+
   socket.emit('loginWithToken', { token }, d => {
     if (d.err) {
       console.log('Invalid Auth')
