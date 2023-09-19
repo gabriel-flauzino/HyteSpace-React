@@ -83,8 +83,11 @@ function Login() {
           >
           Cadastrar uma conta nova
           </button>
-          { !isSubmiting ? (
-            <button className="submitLogin" onClick={loginSubmitHandler}>Entrar</button>
+          { !isSubmiting ? 
+            username.trim() !== '' && password.trim() !== '' ? (
+              <button className="submitLogin" onClick={loginSubmitHandler}>Entrar</button>
+            ) : (
+              <button className="submitLogin" disabled>Entrar</button>
           ) : (
             <button className="submitLogin" disabled><div className="spinningDisk"></div></button>
           )

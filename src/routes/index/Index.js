@@ -31,7 +31,7 @@ const RevealOnScroll = ({ children, className }) => {
     opacity: isVisible ? "1" : "0",
     transform: isVisible ? "translateY(0)" : "translateY(50px)",
     transition: '300ms ease-in-out',
-    'trasition-property': 'opacity, transform'
+    trasitionProperty: 'opacity, transform'
   };
 
   return (

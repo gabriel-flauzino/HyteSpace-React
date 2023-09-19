@@ -14,7 +14,7 @@
 	border-radius: 50%;
 	border: 16px solid transparent;
 	border-top: 16px solid;
-	animation: spin 800ms linear infinite;
+    animation: spin 800ms linear infinite, 250ms linear easeIn;
 	margin: 25px;
 }
 
@@ -25,6 +25,15 @@
 	to {
 		transform: rotate(1turn);
 	}
+}
+
+@keyframes easeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .logo {

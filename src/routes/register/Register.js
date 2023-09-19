@@ -67,7 +67,7 @@ function Login() {
             className="fieldInput" 
             disabled={isSubmiting}
             onKeyDown={ e => e.key === "Enter" && focusNext() }
-            onChange={ (e) => setUsername(e.target.value) }
+            onChange={ (e) => !/[^a-zA-Z0-9_.]/.test(e.target.value) ? setUsername(e.target.value) : (e.target.value.length > username.length ? e.target.value = username : undefined) }
             />
           </div>
           <div className="loginField input">
@@ -111,8 +111,11 @@ function Login() {
           >
           Entrar em uma conta
           </button>
-          { !isSubmiting ? (
-            <button className="submitLogin" onClick={loginSubmitHandler}>Registrar</button>
+          { !isSubmiting ? 
+            username.trim() !== '' && password.trim() !== '' && confirmPassword.trim() !== '' ? (
+              <button className="submitLogin" onClick={loginSubmitHandler}>Registrar</button>
+            ) : (
+              <button className="submitLogin" disabled>Registrar</button>
           ) : (
             <button className="submitLogin" disabled><div className="spinningDisk"></div></button>
           )
