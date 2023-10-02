@@ -86,6 +86,16 @@ function Home() {
     });
   }
 
+  function autoResizeTextbox(e) {
+    let scroll = e.target.scrollTop
+    e.target.style.height = 0;
+    let maxHeight = window.innerWidth > 950 ? 500 : 250
+    if (e.target.scrollHeight >= maxHeight) e.target.style.height = (maxHeight + 6) + "px";
+    else if (e.target.scrollHeight <= 150) e.target.style.height = "150px";
+    else e.target.style.height = (e.target.scrollHeight + 6) + "px";
+    e.target.scrollTop = scroll
+  }
+
   let i = 0;
 
   return (
@@ -172,7 +182,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="createPostBox inputsArea">
-                  <textarea name="postContent" id="postContentInput" placeholder="Escreva uma postagem..."></textarea>
+                  <textarea name="postContent" id="postContentInput" placeholder="Escreva uma postagem..." onChange={autoResizeTextbox}></textarea>
                   <button id="submitPost"><IoMdSend size={25} color='#e7e7e7' /></button>
                 </div>
                 <div className="createPostBox markdownToolbox">
