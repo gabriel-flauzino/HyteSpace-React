@@ -5,6 +5,16 @@
 	
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #903ddf;
+}
+
 *:active {
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
 	-webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
@@ -14,7 +24,7 @@
 	border-radius: 50%;
 	border: 16px solid transparent;
 	border-top: 16px solid;
-    animation: spin 800ms linear infinite, 250ms linear easeIn;
+  animation: spin 800ms linear infinite, 250ms linear easeIn;
 	margin: 25px;
 }
 
