@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-	background: linear-gradient(45deg, #7125ff, #462bdf, #3983f1);
+    background: linear-gradient(45deg, #7125ff, #462bdf, #3983f1);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 32px;
 }
 
 .greeting {
@@ -55,11 +55,22 @@
 
 .friendsContainer {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.friendsContainerLabel {
+    font-size: 30px;
+}
+
+.friendsBox {
+    display: flex;
     align-items: center;
-    width: calc(100% - 40px - 32px);
-    height: 180px;
+    width: 100%;
+    height: 200px;
     padding: 16px;
-    margin: 30px 20px;
+    margin-top: 20px;
     background-color: #181818;
     border-radius: 12px;
     box-shadow: inset 0 0 15px 2px #00000044;
@@ -101,8 +112,8 @@
     flex-direction: column;
     align-items: center;
     padding: 12px;
-    width: 105px;
-    height: calc(100% - 24px);
+    width: 120px;
+    height: 100%;
     border-radius: 10px;
     margin-left: 6px;
     background: linear-gradient(0deg, #0e0e0f, #292b2e);
@@ -137,9 +148,12 @@
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
 }
 
 .friendNickname {
@@ -160,6 +174,227 @@
     overflow: hidden;
 }
 
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: rgb(0 0 0 / 40%);
+    width: 210px;
+    height: 100vh;
+    border-radius: 15px;
+}
+
+.feedContainer {
+    width: 100%;
+    padding: 0 10px;
+    max-width: 700px;
+}
+
+.createPostContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.createPostBox {
+    display: flex;
+    width: 100%;
+}
+
+.createPostBox.top {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cpUserInfoBox {
+    display: flex;
+    align-items: center;
+}
+
+.cpAvatar {
+    width: 42px;
+    height: 42px;
+    background: #343639;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.cpUserNamesBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.cpNickname {
+    color: #dddddd;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.cpUsername {
+    font-size: 12px;
+    margin-top: 2px;
+    color: #a8a8a8;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.cpPreferencesBox {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.cpPostType {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    width: max-content;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #e7e7e7;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #131314;
+}
+
+.cpPostType select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+}
+
+.cpPostType select::-ms-expand {
+    display: none;
+}
+
+.cpPostType::after {
+    justify-self: end;
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: #777;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.cpPostType select,
+.cpPostType::after {
+    grid-area: select;
+}
+
+.cpPostType select option {
+    background-color: #131314;
+}
+
+.cpPrefDescription {
+    color: #adadad;
+    margin-left: 10px;
+    font-size: 14px;
+    max-width: 150px;
+}
+
+.createPostBox.inputsArea {
+    z-index: 1;
+}
+
+#postContentInput {
+    border: none;
+    padding: 0;
+    resize: none;
+    width: 100%;
+    height: 150px;
+    border-radius: 13px;
+    background-color: #141516;
+    border: 2px solid;
+    border-color: #1a1b1c;
+    font-size: 1em;
+    transition: 100ms border-color;
+    color: #dddddd;
+    padding: 6px;
+    z-index: 1;
+}
+
+#submitPost {
+    border: none;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-left: -13px;
+    background-color: #1a1b1c;
+    transition: 100ms;
+    transition-property: background-color, filter, scale;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    cursor: pointer;
+}
+
+#submitPost:hover {
+    filter: brightness(90%);
+}
+
+#submitPost:active {
+    scale: 0.98;
+}
+
+.createPostBox.inputsArea:focus-within #postContentInput,
+.createPostBox.inputsArea:hover #postContentInput {
+    border-color: var(--main-color);
+}
+
+.createPostBox.inputsArea:focus-within #submitPost,
+.createPostBox.inputsArea:hover #submitPost {
+    background-color: var(--main-color);
+}
+
+#postContentInput:focus, #submitPost:focus {
+    outline: none;
+}
+
+.createPostBox.markdownToolbox {
+    background-color:  #171819;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding: 8px;
+    padding-top: calc(13px + 8px);
+    margin-top: -13px;
+}
+
+.mdTool {
+    background-color: #111212;
+    border: none;
+    border-radius: 3px;
+    color: #e7e7e7;
+    padding: 0;
+    width: 40px;
+    height: 30px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.feedBox {
+    margin-top: 30px;
+}
+
 .feedLoading {
     display: flex;
     justify-content: center;
@@ -172,4 +407,8 @@
     height: 50px;
     border-top-color: #585858;
     border-width: 8px;
+}
+
+.emptyFeedMessage {
+    color: rgb(255 255 255 / 60%);
 }
