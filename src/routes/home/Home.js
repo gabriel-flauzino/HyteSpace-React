@@ -2,9 +2,54 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { BiSolidUser, BiSolidPaperPlane } from 'react-icons/bi';
 import { IoMdSend } from "react-icons/io";
+import { Markdown } from "../../classes/Markdown";
+import { setConfig, sanitize } from "dompurify";
 
 import './Home.css';
 import socket from './../../services/socket';
+
+console.log(Markdown)
+const markdown = new Markdown()
+
+setConfig({
+    ALLOWED_TAGS: [ 'b', 'i', 'u', 'code', 'h1', 'h2', 'h3', 's', 'div', 'spoiler', 'a', 'br', 'span', 'sup', 'target' ],
+		ALLOWED_ATTR: [ 'href', 'class', 'target' ]
+});
+
+function parseMarkdown(str) {
+	return sanitize(markdown.parse(str))
+}
+
+function parseDatestamp(timestamp) {
+  let tdy = new Date().toLocaleString("pt-BR", { 
+    dateStyle: "short"
+  })
+	let ytdy = new Date(Date.now() - (1000 * 60 * 60 * 24)).toLocaleString('pt-BR', {
+		dateStyle: "short"
+	})
+	let befYtdy = new Date(Date.now() - (1000 * 60 * 60 * 24 * 2)).toLocaleString('pt-BR', {
+		dateStyle: "short"
+	})
+	let tmrw = new Date(Date.now() + (1000 * 60 * 60 * 24)).toLocaleString('pt-BR', {
+		dateStyle: "short"
+	})
+	let date = new Date(timestamp).toLocaleString('pt-BR', {
+		dateStyle: 'short' 
+	})
+	let time = new Date(timestamp).toLocaleString("pt-BR", {
+		timeStyle: 'short'
+	})
+  
+	return (date === tdy 
+		? 'Hoje' 
+		: date === ytdy
+		  ? 'Ontem'
+			: date === befYtdy
+				? 'Anteontem'
+				: date === tmrw
+					? 'Amanhã'
+					: date) + ', ' + time
+}
 
 function Home() {
   const navigate = useNavigate()
@@ -178,7 +223,7 @@ function Home() {
                         <option value="private">Privado</option>
                       </select>
                     </div>
-                    <span className='cpPrefDescription'>{selectedType == "global" ? "Todo mundo poderá visualizar" : "Apenas seus amigos poderão visualizar"}</span>
+                    <span className='cpPrefDescription'>{selectedType === "global" ? "Todo mundo poderá visualizar" : "Apenas seus amigos poderão visualizar"}</span>
                   </div>
                 </div>
                 <div className="createPostBox inputsArea">
@@ -218,10 +263,14 @@ function Home() {
                                 <BiSolidUser className="friendIcon" size={50} color="#fff" />
                               </div>
                               <div className="postBox">
-                                <div className="authorBox">
-
+                                <div className="postTop">
+                                  <div className="authorBox">
+                                    <span className="authorNickname">{x.author?.nickname}</span>
+                                    <span className="authorUsername">@{x.author?.username}</span>
+                                  </div>
+                                  <span className="postDatestamp">{parseDatestamp(x.createdTimestamp)}</span>
                                 </div>
-                                <div className="contentBox"></div>
+                                <div className="contentBox" dangerouslySetInnerHTML={{ __html: parseMarkdown(x.content) }}></div>
                               </div>
                             </div>
                           ))}
