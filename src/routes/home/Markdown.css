@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+
+.markdown-bold {
+	font-weight: 600;
+}
+
+.markdown-italic {
+	font-style: italic;
+}
+
+.markdown-underline {
+	text-decoration: underline;
+}
+
+.markdown-strikethrough {
+	text-decoration: line-through;
+}
+
+.markdown-spoiler {
+	padding: 0 4px;
+	border-radius: 4px;
+	background: rgb(50 50 50 / 70%);
+	-webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+	transition: 100ms;
+	z-index: 1;
+}
+
+.markdown-spoiler.hidden {
+	background: rgb(35 35 35);
+	cursor: pointer;
+}
+
+.hidden-spoiler-text {
+	pointer-events: none;
+	-webkit-text-fill-color: transparent !important;
+	color: transparent !important;
+	user-select: none;
+}
+
+.markdown-h1 {
+    display: inline;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.markdown-h2 {
+    display: inline;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.markdown-h3 {
+    display: inline;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.markdown-inline-code {
+	background-color: rgb(30 30 35 / 70%);
+	padding: 2px 4px;
+	border-radius: 4px;
+	font-family: 'Inconsolata', monospace !important;
+	font-weight: 500;
+	-webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.markdown-code-block {
+	padding: 4px;
+	width: 100%;
+	background-color: #313235;
+	border-radius: 6px;
+	border: #4b4b51 1px solid;
+	text-align: start !important;
+	margin: 10px 0;
+}
+
+.markdown-code-block > code {
+	font-family: 'Inconsolata', monospace !important;
+	font-weight: 500;
+	color: #d1d1d1;
+}
+
+.markdown-link {
+	color: rgb(95, 154, 250);
+	text-decoration: none;
+}
+
+.markdown-super {
+	font-size: 12px;
+	vertical-align: super;
+}
