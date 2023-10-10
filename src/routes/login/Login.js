@@ -13,7 +13,6 @@ function Login() {
   let [ error, setError ] = useState('');
 
   function focusNext() {
-    console.log('focusing next')
     const inputs = Array.from(document.querySelectorAll('.loginField > input'))
     const idx = inputs.indexOf(document.activeElement) + 1
     if (idx === inputs.length) {
