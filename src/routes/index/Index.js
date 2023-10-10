@@ -69,7 +69,7 @@ function Index() {
           <div className={clicked ? "fillScreenAnim clicked" : "fillScreenAnim"}></div>
         </header>
         <main className="contentSections">
-          <section className="aboutSection" id="#about">
+          <section className="aboutSection" id="about">
             <RevealOnScroll className='sectionTitle'>O que é o HyteSpace?</RevealOnScroll>
             <div className="sectionContent">
               <RevealOnScroll className="sectionChild sectionText">
