@@ -502,6 +502,7 @@
     color: #d3d3d3;
     margin: 15px 0 25px;
     width: 100%;
+    word-break: break-word;
 }
 
 .postToolbox {
