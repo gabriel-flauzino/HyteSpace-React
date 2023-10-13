@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Login.css'
 
-import socket from '../../services/socket';
+import socket from '../../services/Socket';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
