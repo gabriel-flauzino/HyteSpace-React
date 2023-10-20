@@ -54,7 +54,7 @@ function Login() {
           <div className="loginField input required">
             <span className="fieldName">Nome de usuário</span>
             <input 
-            type="text" 
+            type="username" 
             className="fieldInput" 
             disabled={isSubmiting}
             onKeyDown={ e => e.key === "Enter" && focusNext() }
@@ -64,7 +64,7 @@ function Login() {
           <div className="loginField input required">
             <span className="fieldName">Senha</span>
             <input 
-            type="text" 
+            type="password" 
             className="fieldInput" 
             disabled={isSubmiting}
             onKeyDown={ e => e.key === "Enter" && focusNext() }

@@ -1,0 +1,21 @@
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #fff;
+}
+
+.col.blocked {
+  cursor: not-allowed;
+}
+
+.posIcon {
+  width: 75px;
+  height: 75px;
+}
