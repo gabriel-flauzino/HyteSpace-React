@@ -1,21 +1,140 @@
-.row {
+.container.game {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  transition: 200ms ease-out background-color;
 }
 
-.col {
+.container.game.x-color {
+  background-color: #ba3c3c;
+}
+
+.container.game.circle-color {
+  background-color: #5962ff;
+}
+
+.tictactoe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background: #505050;
+  border: 5px solid #1f2021;
+}
+
+.tictactoe.x-color {
+  border: 5px solid #ba3c3c;
+}
+
+.tictactoe.circle-color {
+  border: 5px solid #5962ff;
+}
+
+.row,
+.bigrow {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.col,
+.bigcol {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #fff;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
 
-.col.blocked {
+.col {
+  cursor: pointer;
+  border: 1px solid #505050;
+  background: #1f2021;
+}
+
+.bigcol,
+.col {
+  transition: 300ms ease-out border;
+}
+
+.bigcol.ativo {
+  border: 3px solid #ffffff;
+  background: #999999;
+}
+
+.bigcol.ativo .col {
+  border: 1px solid #999999;
+}
+
+.bigcol.ativo .col:hover:not(.dominado) {
+  transition: 100ms ease-out;
+  filter: brightness(150%);
+}
+
+.col.dominado,
+.bigcol.dominado .col,
+.bigcol:not(.ativo) .col {
   cursor: not-allowed;
 }
 
-.posIcon {
-  width: 75px;
-  height: 75px;
+.bigcol {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #505050;
+}
+
+.bigcol.dominado .row .col .posIcon {
+  transition: 200ms ease-in-out;
+  filter: brightness(35%);
+}
+
+.posIcon,
+.bigPosIcon {
+  width: 100%;
+  height: 100%;
+  animation: reveal 300ms ease-in;
+}
+
+.bigPosIcon {
+  position: absolute;
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  100% {
+    clip-path: inset(0);
+  }
+}
+
+.circle-pos:not(.tie) {
+  padding: 10%;
+}
+
+.bigPosIcon.circle-pos {
+  padding: 10%;
+}
+
+.tie {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+.slash-pos.tie {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-pos.tie {
+  padding: 10.5px;
+  bottom: 0;
+  right: 0;
 }
