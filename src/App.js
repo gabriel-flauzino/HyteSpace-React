@@ -4,6 +4,7 @@ import Register from "./routes/register/Register";
 import Login from "./routes/login/Login";
 import Index from "./routes/index/Index";
 import Game from "./routes/game/Game";
+import Devtests from "./routes/__devtests/Devtests";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path="/game" element={<Game />} />
+        <Route path="/__devtests" element={<Devtests />} />
       </Routes>
     </BrowserRouter>
   )  

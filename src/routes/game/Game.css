@@ -1,9 +1,6 @@
 .container.game {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
   transition: 200ms ease-out background-color;
 }
 
@@ -15,10 +12,19 @@
   background-color: #5962ff;
 }
 
+.gameBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
 .tictactoe {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 600px;
+  height: 600px;
   border-radius: 8px;
   background: #505050;
   border: 5px solid #1f2021;

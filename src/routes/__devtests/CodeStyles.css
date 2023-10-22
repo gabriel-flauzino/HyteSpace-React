@@ -1,0 +1,19 @@
+.tagBracket {
+  color: #ff9393;
+}
+
+.tagName {
+  color: #86d9ff;
+}
+
+.tagInside {
+  color: #7bf7a0;
+}
+
+.operator {
+  color: #e589fc;
+}
+
+.string {
+  color: #f7c273;
+}
