@@ -7,7 +7,7 @@ import "./Game.css";
 function Game() {
   const [estadoJogo, setEstadoJogo] = useState(bigJogoDaVelha());
   const [jogador, setJogador] = useState(1);
-  const [jogoRolando, setJogoRolando] = useState(false);
+  const [jogoRolando, setJogoRolando] = useState(true);
   const [posObrigatoria, setPosObrigatoria] = useState([null, null]);
 
   function bigJogoDaVelha() {
