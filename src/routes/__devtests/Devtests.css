@@ -1,0 +1,90 @@
+html:has(.container.devtests) {
+  background-color: #dfdfdf;
+  cursor: none;
+}
+
+#drawArea {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#canvas {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  translate: -50%;
+  background: white;
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 30%);
+}
+
+#pointer {
+  position: absolute;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.aimLine {
+  position: absolute;
+  background: transparent;
+  backdrop-filter: invert(50%);
+}
+
+.aimLine.top, .aimLine.bottom {
+  width: 2px;
+  height: 15px;
+}
+
+.aimLine.left, .aimLine.right {
+  width: 15px;
+  height: 2px;
+}
+
+.aimLine.top {
+  left: 50%;
+  top: -10px;
+  translate: -50% -100%;
+}
+
+.aimLine.right {
+  left: 100%;
+  top: 50%;
+  translate: 10px -50%;
+}
+
+.aimLine.bottom {
+  left: 50%;
+  top: 100%;
+  translate: -50% 10px;
+}
+
+.aimLine.left {
+  left: -10px;
+  top: 50%;
+  translate: -100% -50%;
+}
+
+.tools {
+  position: absolute;
+  cursor: initial;
+  top: 100%;
+  left: 100%;
+  translate: -100% -100%;
+  background-color: #f3f3f3;
+  border-top-left-radius: 16px;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+  padding: 10px 10px 0 10px;
+  color: #000;
+}
+
+.tool {
+  margin-bottom: 10px;
+}
