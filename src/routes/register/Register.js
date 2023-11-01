@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Register.css'
 
-import socket from '../../services/Socket';
+import SocketClient from "../home/services/socket";
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -11,8 +11,18 @@ function Login() {
   let [ nickname, setNickname ] = useState('');
   let [ password, setPassword ] = useState('');
   let [ confirmPassword, setConfirmPassword ] = useState('');
-  let [ isSubmiting, setIsSubmiting ] = useState(false);
+  let [ isSubmiting, setIsSubmiting ] = useState(true);
   let [ error, setError ] = useState('');
+
+  useEffect(() => {
+    (async function() {
+      SocketClient.socket = null;
+
+      while (SocketClient.socket?.socket == null) await new Promise(res => setTimeout(res, 100));
+
+      setIsSubmiting(false);
+    })()
+  }, [])
 
   function focusNext() {
     const inputs = Array.from(document.querySelectorAll('.loginField > input'))
@@ -25,7 +35,7 @@ function Login() {
     }
   }
 
-  function loginSubmitHandler() {
+  async function loginSubmitHandler() {
     setError('');
     setIsSubmiting(true);
 
@@ -34,7 +44,9 @@ function Login() {
       return setError('As senhas não coincidem.');
     }
 
-    socket.emit("register", { username, nickname, password }, d => {
+    while (SocketClient.socket?.socket == null) await new Promise(res => setTimeout(res, 100));
+
+    SocketClient.socket.socket.emit("register", { username, nickname, password }, d => {
       if (d.err) {
         let errMsg;
 
@@ -63,7 +75,8 @@ function Login() {
             <span className="fieldName">Nome de usuário</span>
             <input 
             type="text" 
-            className="fieldInput" 
+            className="fieldInput"
+            placeholder="Pia de predio"
             disabled={isSubmiting}
             onKeyDown={ e => e.key === "Enter" && focusNext() }
             onChange={ (e) => !/[^a-zA-Z0-9_.]/.test(e.target.value) ? setUsername(e.target.value) : (e.target.value.length > username.length ? e.target.value = username : undefined) }

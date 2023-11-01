@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Login.css'
 
-import socket from '../../services/Socket';
+import SocketClient from '../home/services/socket';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -11,6 +11,16 @@ function Login() {
   let [ password, setPassword ] = useState('');
   let [ isSubmiting, setIsSubmiting ] = useState(false);
   let [ error, setError ] = useState('');
+
+  useEffect(() => {
+    (async function() {
+      SocketClient.socket = null;
+
+      while (SocketClient.socket?.socket == null) await new Promise(res => setTimeout(res, 100));
+
+      setIsSubmiting(false);
+    })()
+  }, [])
 
   function focusNext() {
     const inputs = Array.from(document.querySelectorAll('.loginField > input'))
@@ -27,7 +37,7 @@ function Login() {
     setError('');
     setIsSubmiting(true);
 
-    socket.emit("login", { username, password }, d => {
+    SocketClient.socket.socket.emit("login", { username, password }, d => {
       if (d.err) {
         let errMsg;
 
